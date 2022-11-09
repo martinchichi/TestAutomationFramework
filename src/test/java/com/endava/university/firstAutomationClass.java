@@ -4,10 +4,16 @@ import org.testng.annotations.BeforeTest;
 
 public class firstAutomationClass {
 
-        @BeforeTest
-        public void setUp(){
-            System.out.println("First test annotation");
-        }
+    public static void main(String[] args) {
+
+        new firstAutomationClass().setUp();
+
+
+    }
+    @BeforeTest
+    public void setUp(){
+        System.out.println("First test annotation");
+    }
 
 
 }
