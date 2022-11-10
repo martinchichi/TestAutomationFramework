@@ -1,5 +1,6 @@
 package FirtsAutomation;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class OurTests {
@@ -24,14 +25,17 @@ public class OurTests {
         System.out.println("Before Method - Sign in");
     }
 
-    @Test
+    @Test (priority = 1)
     public void searchCustomer(){
         System.out.println("Search for customer");
     }
 
-    @Test
+    @Test (priority = 2)
     public void searchProduct(){
         System.out.println("Search for Product");
+        String unObjeto="algo";
+        Assert.assertEquals(unObjeto,"algo","This is a message");
+
     }
 
     @AfterMethod
