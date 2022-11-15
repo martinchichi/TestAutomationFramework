@@ -1,19 +1,16 @@
-package com.endava.university;
+package Annotations;
 
 import org.testng.annotations.BeforeTest;
 
-public class firstAutomationClass {
+public class Annotations2 {
 
     public static void main(String[] args) {
-
-        new firstAutomationClass().setUp();
-
-
+        new Annotations2().setUp();
     }
+
     @BeforeTest
     public void setUp(){
         System.out.println("First test annotation");
     }
-
 
 }

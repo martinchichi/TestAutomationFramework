@@ -1,14 +1,17 @@
 package FirtsAutomation;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 
 public class FirstTest {
 
-    @Test
+
+    @Test (priority = 1)
     public void testManual() {
 
         ChromeOptions options= new ChromeOptions();
@@ -22,12 +25,21 @@ public class FirstTest {
 
         System.out.println(driver.getTitle());
         driver.quit();
-
-
-
     }
 
+    @Test (priority = 2)
+    public void testAutomatic(){
 
+        //apertura con WebdriverManager
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver();
+
+        driver.get("https://www.lanacion.com.ar/");
+        driver.manage().window().maximize();
+
+        System.out.println(driver.getTitle());
+        driver.quit();
+    }
 
 
 

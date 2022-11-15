@@ -1,9 +1,9 @@
-package FirtsAutomation;
+package Annotations;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class OurTests {
+public class Annotations {
 
     @BeforeSuite
     public void beforeSuit(){
@@ -34,9 +34,7 @@ public class OurTests {
     public void searchProduct(){
         System.out.println("Search for Product");
         String unObjeto="algo";
-        Assert.assertEquals(unObjeto,"algo","This is a message");
-
-    }
+        Assert.assertEquals(unObjeto,"algo","This is a message"); }
 
     @AfterMethod
     public void afterMethod(){
