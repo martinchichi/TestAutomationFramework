@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 
-public class FirstTest {
+public class ThirdTest  extends TestBase {
 
     @Test (priority = 1)
     public void testManual() {
@@ -28,16 +28,23 @@ public class FirstTest {
 
     @Test (priority = 2)
     public void testAutomatic(){
+        browse();
+
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
 
         driver.get("https://www.lanacion.com.ar/");
         driver.manage().window().maximize();
-
         System.out.println(driver.getTitle());
         driver.quit();
     }
 
+    @Test (priority = 3)
+    public void testBrowse(){
+        String url ="https://www.google.com/";
+        browse(url);
+        quit();
+    }
 
 
 }

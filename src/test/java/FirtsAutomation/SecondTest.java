@@ -2,22 +2,21 @@ package FirtsAutomation;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class FirstTest {
+public class SecondTest {
+
+    @BeforeTest
+    public void getDriver(){
+        WebDriverManager.firefoxdriver().setup();
+    }
 
     @Test (priority = 1)
     public void testManual() {
-
-        ChromeOptions options= new ChromeOptions();
-        options.addArguments("incognito");
-
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new FirefoxDriver();
 
         driver.get("https://www.infobae.com/");
         driver.manage().window().maximize();
@@ -28,7 +27,6 @@ public class FirstTest {
 
     @Test (priority = 2)
     public void testAutomatic(){
-        WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
 
         driver.get("https://www.lanacion.com.ar/");
