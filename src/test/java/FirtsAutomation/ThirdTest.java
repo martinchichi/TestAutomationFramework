@@ -37,6 +37,7 @@ public class ThirdTest  extends TestBase {
         driver.manage().window().maximize();
         System.out.println(driver.getTitle());
         driver.quit();
+
     }
 
     @Test (priority = 3)
