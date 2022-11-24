@@ -1,4 +1,4 @@
-package Annotations;
+package annotations;
 
 import org.testng.annotations.BeforeTest;
 
