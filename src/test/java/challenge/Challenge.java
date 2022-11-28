@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 
@@ -43,8 +42,8 @@ public class Challenge extends BasePage {
         //Open and maximize browser
         openBrowser(url);
         //Search and click on 'create account' link
-        WebElement signUp = driver.findElement(locators.locatorCreateAccount);
-        signUp.click();
+        WebElement createAnAccount = driver.findElement(locators.locatorCreateAnAccount);
+        createAnAccount.click();
         //Enters data for each box
         driver.findElement(locators.locatorFirstName).sendKeys(firstName);
         driver.findElement(locators.locatorLastName).sendKeys(lastName);
@@ -62,19 +61,16 @@ public class Challenge extends BasePage {
         //Verify that account name is equal to the one created
         Assert.assertEquals(firstName,firstName);
     }
-    //Close driver and browser
-    @AfterTest
-        public void closeBrowser(){
-        driver.quit();
-    }
+
+//    @AfterTest
+//        public void closeBrowser(){
+//        driver.quit();
+//    }
+
     //Message after test was executed
     @AfterTest
     public void afterTestPrint(){
         System.out.println("Exit Test");
     }
-
-
-
-
 
 }
