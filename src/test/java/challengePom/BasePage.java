@@ -13,7 +13,7 @@ import java.time.Duration;
 public class BasePage {
     WebDriver driver;
 
-    public void setUpBrowser(){
+    public void setUpBrowser(WebDriver driver){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
@@ -23,11 +23,15 @@ public class BasePage {
         driver.manage().window().maximize();
      }
 
+     public WebElement getElement(By element){
+        return driver.findElement(element);
+     }
+
      public void quit(){
         driver.quit();
      }
 
-     public void setWat(By el){
+     public void setWait(By el){
          WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
          wait.until(ExpectedConditions.visibilityOfElementLocated(el));
      }

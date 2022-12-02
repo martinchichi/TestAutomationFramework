@@ -2,6 +2,7 @@ package challengePom;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -11,7 +12,8 @@ import java.time.Duration;
 
 public class LumaTest {
 
-    WebDriver driver;
+    //inicializar el driver
+    public WebDriver driver = new ChromeDriver();
     LumaHomePage lumaHomePage;
     LumaCreateAccountPage lumaCreateAccountPage;
     LumaMyAccountPage lumaMyAccountPage;
@@ -20,13 +22,14 @@ public class LumaTest {
 
     @BeforeTest
     public void setUp(){
-        driver.get(url);
+        lumaHomePage = new LumaHomePage(driver);
         lumaHomePage.openBrowser(url);
         System.out.println("Log in test with random data");
     }
+
     @Test (priority = 1)
     public void navigateHomePageAndCreateAnAccount(){
-        lumaHomePage = new LumaHomePage(driver);
+
         lumaHomePage.welcomeMsg();
         lumaHomePage.clickCreateAnAccountLink();
     }
@@ -52,7 +55,7 @@ public class LumaTest {
 
     @AfterTest
     public void closeBrowser() {
-        //  driver.quit();
+        //driver.quit();
         System.out.println("Exit Test");
     }
 

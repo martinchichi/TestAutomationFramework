@@ -15,20 +15,19 @@ public class LumaHomePage extends  BasePage {
 
     //    ChromeDriver driver;
     WebDriver driver;
-    By welcomeMsg= By.cssSelector("body.cms-home.cms-index-index.page-layout-1column:nth-child(2) div.page-wrapper:nth-child(5) header.page-header div.panel.wrapper div.panel.header ul.header.links li.greet.welcome:nth-child(1) > span.not-logged-in");
-    By locatorCreateAnAccountLink = By.xpath("body.cms-home.cms-index-index.page-layout-1column:nth-child(2) div.page-wrapper:nth-child(5) header.page-header div.panel.wrapper div.panel.header ul.header.links li:nth-child(3) > a:nth-child(1)");
+    By welcomeMsg= By.cssSelector("header>div> div > ul > .greet.welcome > .not-logged-in");
+    By locatorCreateAnAccountLink = By.cssSelector("header>div>div>ul>li:nth-child(3)");
 
     //    Constructor for page object
     public LumaHomePage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
     }
     public void welcomeMsg(){
-
-        driver.findElement(welcomeMsg).getText().contains("welcome");
+        getElement(welcomeMsg).getText().contains("welcome");
         assertEquals(welcomeMsg,welcomeMsg);
     }
 
     public void clickCreateAnAccountLink(){
-        driver.findElement(locatorCreateAnAccountLink).click();
+        getElement(locatorCreateAnAccountLink).click();
     }
 }
