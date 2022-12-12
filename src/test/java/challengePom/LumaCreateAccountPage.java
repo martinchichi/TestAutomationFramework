@@ -1,20 +1,13 @@
 package challengePom;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
 import static org.testng.Assert.assertEquals;
 
-public class LumaCreateAccountPage extends  BasePage{
+public class LumaCreateAccountPage extends BasePage{
 
-    WebDriver driver;
+//    WebDriver driver;
     By locatorFirstName = By.id("firstname");
     By locatorLastName = By.id("lastname");
     By locatorEmail = By.id("email_address");
@@ -24,14 +17,14 @@ public class LumaCreateAccountPage extends  BasePage{
     By locatorCreateNewCustomerAccountMsg= By.cssSelector("body.customer-account-create.page-layout-1column:nth-child(2) div.page-wrapper:nth-child(5) main.page-main div.page-title-wrapper:nth-child(2) h1.page-title > span.base");
 
     public LumaCreateAccountPage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
     }
-
     public void createNewCustomerAccountMsg(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locatorCreateNewCustomerAccountMsg));
-        String getCreateNewCustomerAccountMsg = driver.findElement(locatorCreateNewCustomerAccountMsg).getText();
-        assertEquals(getCreateNewCustomerAccountMsg,getCreateNewCustomerAccountMsg);
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(locatorCreateNewCustomerAccountMsg));
+//        String getCreateNewCustomerAccountMsg = driver.findElement(locatorCreateNewCustomerAccountMsg).getText().contains("Create");
+        getElement(locatorCreateNewCustomerAccountMsg).getText().contains("Create");
+        assertEquals(locatorCreateNewCustomerAccountMsg,locatorCreateNewCustomerAccountMsg);
     }
     public void enterFirstName(){
         String firstName = RandomStringUtils.randomAlphabetic(8);
@@ -51,7 +44,8 @@ public class LumaCreateAccountPage extends  BasePage{
         driver.findElement(locatorPswdConfirmation).sendKeys(password);
     }
     public void clickOnCreateAccountButton(){
-        driver.findElement(locatorCreateAccountButton).click();
+//        driver.findElement(locatorCreateAccountButton).click();
+        getElement(locatorCreateAccountButton).click();
     }
 
 
