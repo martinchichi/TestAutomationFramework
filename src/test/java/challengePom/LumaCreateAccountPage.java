@@ -16,8 +16,8 @@ public class LumaCreateAccountPage extends BasePage{
     By locatorCreateAccountButton = By.xpath("/html[1]/body[1]/div[2]/main[1]/div[3]/div[1]/form[1]/div[1]/div[1]/button[1]/span[1]");
     By locatorCreateNewCustomerAccountMsg= By.cssSelector("body.customer-account-create.page-layout-1column:nth-child(2) div.page-wrapper:nth-child(5) main.page-main div.page-title-wrapper:nth-child(2) h1.page-title > span.base");
 
-    public LumaCreateAccountPage(WebDriver driver) {
-        super.driver = driver;
+    public LumaCreateAccountPage() {
+        super(driver);
     }
     public void createNewCustomerAccountMsg(){
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
