@@ -9,17 +9,13 @@ import static org.testng.Assert.assertEquals;
 public class LumaMyAccountPage  extends BasePage{
 //    WebDriver driver;
 //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    By locatorRegisteredMessage= By.cssSelector("body.account.customer-account-index.page-layout-2columns-left:nth-child(2) div.page-wrapper:nth-child(5) main.page-main div.page.messages:nth-child(2) div:nth-child(2) div.messages div.message-success.success.message > div:nth-child(1)");
+    By locatorRegisteredMessage= By.cssSelector("div.message-success.success.message");
 //    By locatorRegisteredMessage= By.cssSelector("body.account.customer-account-index.page-layout-2columns-left:nth-child(2) div.page-wrapper:nth-child(5) main.page-main div.page.messages:nth-child(2) div:nth-child(2) div.messages div.message-success.success.message > div:nth-child(1)");
 
-    public LumaMyAccountPage(WebDriver driver){
-//        super.setUpBrowser(driver);
-        super.driver=driver;
+    public LumaMyAccountPage(){
+        super(driver);
     }
 
-//    public LumaMyAccountPage(WebDriver driver) {
-//        this.driver = driver;
-//    }
     public void myAccountWelcomeMsg(){
 
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(locatorRegisteredMessage));

@@ -22,9 +22,9 @@ public class LumaTest {
 
     @BeforeTest
     public void setUp(){
-        lumaHomePage = new LumaHomePage(driver);
-        lumaCreateAccountPage=new LumaCreateAccountPage(driver);
-        lumaMyAccountPage =new LumaMyAccountPage(driver);
+        lumaHomePage = new LumaHomePage();
+        lumaCreateAccountPage=new LumaCreateAccountPage();
+        lumaMyAccountPage =new LumaMyAccountPage();
         lumaHomePage.openBrowser(url);
         System.out.println("Create an account with random data and log in");
     }
@@ -47,15 +47,12 @@ public class LumaTest {
 
     @Test (priority = 3)
     public void verifyAccountCreation(){
-//        lumaMyAccountPage=new LumaMyAccountPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(lumaMyAccountPage.locatorRegisteredMessage));
-//        lumaMyAccountPage.myAccountWelcomeMsg();
+        lumaCreateAccountPage.waitElement(lumaMyAccountPage.locatorRegisteredMessage);
     }
 
     @AfterTest
     public void closeBrowser() {
-        driver.quit();
+        driver.close();
         System.out.println("Exit Test");
     }
 

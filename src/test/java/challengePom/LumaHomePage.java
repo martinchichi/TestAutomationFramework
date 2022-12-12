@@ -13,14 +13,12 @@ import static org.testng.Assert.assertEquals;
 
 public class LumaHomePage extends  BasePage {
 
-    //    ChromeDriver driver;
-    WebDriver driver;
     By welcomeMsg= By.cssSelector("header>div> div > ul > .greet.welcome > .not-logged-in");
     By locatorCreateAnAccountLink = By.cssSelector("header>div>div>ul>li:nth-child(3)");
 
     //    Constructor for page object
-    public LumaHomePage(WebDriver driver) {
-        super.driver = driver;
+    public LumaHomePage() {
+        super(driver);
     }
     public void welcomeMsg(){
         getElement(welcomeMsg).getText().contains("welcome");
